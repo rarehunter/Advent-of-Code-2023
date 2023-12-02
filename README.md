@@ -12,6 +12,9 @@ https://adventofcode.com/2023
 
 My approaches and overall thought process to each of this season's problems are documented in the source code. Future improvements are called out as well.
 
+Here are some concepts that were learned or exercised this year:
+- String manipulation
+
 _Note: The input files themselves are not uploaded here as they are not licensed for reproduction or distribution._
 
 See:
