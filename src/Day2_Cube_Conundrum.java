@@ -31,7 +31,7 @@ class CubeResults {
     }
 }
 
-public class Day2 {
+public class Day2_Cube_Conundrum {
     public static void main(String[] args) {
         File file = new File("./inputs/day2/day2.txt");
         Map<Integer, List<CubeResults>> games = new HashMap<>();
