@@ -14,7 +14,8 @@ My approaches and overall thought process to each of this season's problems are 
 
 Here are some concepts/data structures that were learned or exercised this year:
 - String manipulation
-- Dictionary (associative area, mapping)
+- Dictionary (associative arrays, mapping)
+- 2-dimensional arrays
 
 _Note: The input files themselves are not uploaded here as they are not licensed for reproduction or distribution._
 
