@@ -149,7 +149,7 @@ public class Day5_Seed_Fertilizer {
             long part1 = part1();
             System.out.println("Part 1 is: " + part1);
 
-            long part2 = part2();
+            long part2 = part2_better();
             System.out.println("Part 2 is: " + part2);
 
         } catch (IOException exception) {
@@ -162,6 +162,17 @@ public class Day5_Seed_Fertilizer {
         for (AToBMap entry : map) {
             if (value >= entry.sourceRangeStart() && value < entry.sourceRangeStart() + entry.rangeLength()) {
                 return entry.destinationRangeStart() + (value - entry.sourceRangeStart());
+            }
+        }
+
+        return value;
+    }
+
+    // Given a value, returns the reversed mapped value using the given map.
+    private static long getReverseMappedValue(List<AToBMap> map, long value) {
+        for (AToBMap entry : map) {
+            if (value >= entry.destinationRangeStart() && value < entry.destinationRangeStart() + entry.rangeLength()) {
+                return entry.sourceRangeStart() + (value - entry.destinationRangeStart());
             }
         }
 
@@ -204,5 +215,32 @@ public class Day5_Seed_Fertilizer {
             }
         }
         return minLocation;
+    }
+
+    // Part 2 Better: Start from the end instead of the beginning. In other words, start search for the lowest
+    // possible location and reverse the conversion process until you get a seed value. Then, check to see
+    // if the seed value returned is within the seed ranges in the input. If so, that location is the lowest one.
+    // If not, keep searching locations. Takes less than 10 seconds to run.
+    private static long part2_better() {
+        int location = 1; // Start with location 1 and search upwards.
+
+        // Keep running until we find a location whose seed value is within the seed ranges.
+        while (true) {
+            long humidity = getReverseMappedValue(humidityToLocation, location);
+            long temp = getReverseMappedValue(tempToHumidity, humidity);
+            long light = getReverseMappedValue(lightToTemp, temp);
+            long water = getReverseMappedValue(waterToLight, light);
+            long fertilizer = getReverseMappedValue(fertilizerToWater, water);
+            long soil = getReverseMappedValue(soilToFertilizer, fertilizer);
+            long seed = getReverseMappedValue(seedToSoil, soil);
+
+            for (int i = 0; i < seeds.size() - 1; i += 2) {
+                if (seed >= seeds.get(i) && seed < seeds.get(i) + seeds.get(i+1)) {
+                    return location;
+                }
+            }
+
+            location++;
+        }
     }
 }
