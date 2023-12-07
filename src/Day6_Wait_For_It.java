@@ -31,6 +31,9 @@ public class Day6_Wait_For_It {
         Race actualRace = parsePart2(file);
         long part2 = part2(actualRace);
         System.out.println("Part 2 is: " + part2);
+
+        long part2Math = part2_math(actualRace);
+        System.out.println("Part 2 Math is: " + part2Math);
     }
 
     // Parses the input file for part 1 (accounting for whitespaces as a separate race)
@@ -135,5 +138,33 @@ public class Day6_Wait_For_It {
         }
 
         return numWaysToBeatRecord;
+    }
+
+    // In order to solve this using a purely mathematical equation, we have to recognize
+    // that the boat distances are symmetrical across the longest distance traveled.
+    // In fact, the boat distances are quadratic in nature as represented by the equation in part 1:
+    // time_pressed * (time - time_pressed) > distance
+    // -distance + time_pressed * time - time_pressed ^ 2 > 0
+    // Use quadratic formula to find the min/max limits for the time_pressed.
+    // time_pressed = (-time + sqrt(time^2 - (4 * distance))) / -2
+    // time_pressed = (-time - sqrt(time^2 - (4 * distance))) / -2
+    // This means that in order for the boat to beat the record distance,
+    // we have to hold down the button longer than the smaller of the two found values
+    // but less than the larger of the two found values.
+    private static long part2_math(Race actualRace) {
+        long time = actualRace.getTime();
+        long distance = actualRace.getDistance();
+        double numerator = Math.sqrt(Math.pow(time, 2.0) - (4 * distance)); // b^2 - 4ac
+        double x_intercept1 = (-time + numerator) / -2;
+        double x_intercept2 = (-time - numerator) / -2;
+
+        // We will round up the min of the two values and round down the max of the two values.
+        double min = Math.min(x_intercept1, x_intercept2);
+        double max = Math.max(x_intercept1, x_intercept2);
+        double ceiling = Math.ceil(min);
+        double floor = Math.floor(max);
+
+        // Finally, we return the num of values encompassed by the min/max range limits.
+        return (long)(floor - ceiling + 1);
     }
 }
