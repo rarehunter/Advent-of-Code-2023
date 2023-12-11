@@ -19,6 +19,9 @@ Here are some concepts/data structures that were learned or exercised this year:
 - Sorting and comparators
 - Mathematical solutions (quadratic formula, least common multiple (LCM), greatest common divisor (GCD))
 - Cycle detection
+- Flood fill
+- Pick's theorem
+- Shoelace formula
 
 _Note: The input files themselves are not uploaded here as they are not licensed for reproduction or distribution._
 
