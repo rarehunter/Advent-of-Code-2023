@@ -23,6 +23,7 @@ Here are some concepts/data structures that were learned or exercised this year:
 - Pick's theorem
 - Shoelace formula
 - Point in polygon problem (ray-casting algorithm)
+- Manhattan distance
 
 _Note: The input files themselves are not uploaded here as they are not licensed for reproduction or distribution._
 
