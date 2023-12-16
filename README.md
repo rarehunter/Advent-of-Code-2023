@@ -25,6 +25,7 @@ Here are some concepts/data structures that were learned or exercised this year:
 - Point in polygon problem (ray-casting algorithm)
 - Manhattan distance
 - Recursion and memoization
+- Hashing
 
 _Note: The input files themselves are not uploaded here as they are not licensed for reproduction or distribution._
 
