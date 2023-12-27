@@ -26,6 +26,8 @@ Here are some concepts/data structures that were learned or exercised this year:
 - Manhattan distance
 - Recursion and memoization
 - Hashing
+- Dijkstra's algorithm
+- Conway's Game of Life
 
 _Note: The input files themselves are not uploaded here as they are not licensed for reproduction or distribution._
 
