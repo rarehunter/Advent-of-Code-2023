@@ -17,6 +17,8 @@ Here are some concepts/data structures that were learned or exercised this year:
 - Dictionary (associative arrays, mapping)
 - 2-dimensional arrays
 - Sorting and comparators
+- Depth-first search
+- Breadth-first search
 - Mathematical solutions (quadratic formula, least common multiple (LCM), greatest common divisor (GCD))
 - Cycle detection
 - Flood fill
